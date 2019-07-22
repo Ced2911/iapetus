@@ -50,17 +50,9 @@ enum GUI_MES
 	GM_DEINIT
 };
 
-typedef struct  
-{
-	struct hgui_struct *hgui;
-	enum GUI_MES msg;
-	u32 param1;
-	u32 param2;
-} gui_msg_buf_struct;
-
 #define GMS_CAPTION	(1 << 0)
 
-typedef struct  
+typedef struct hgui_struct 
 {
 	char *name;
 	u32 style;
@@ -74,6 +66,14 @@ typedef struct
 	font_struct font;
 	int (*func)(struct hgui_struct *hgui, enum GUI_MES msg, u32 param1, u32 param2);
 } hgui_struct;
+
+typedef struct  
+{
+	struct hgui_struct *hgui;
+	enum GUI_MES msg;
+	u32 param1;
+	u32 param2;
+} gui_msg_buf_struct;
 
 #define GBM_OK			(1 << 0)
 #define GBM_SAVE		(1 << 1)

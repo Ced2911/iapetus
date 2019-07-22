@@ -20,36 +20,9 @@
 #ifndef LAPETUS_H
 #define LAPETUS_H
 
-#include "types.h"
-#include "bios.h"
-#include "ar/arcomm.h"
-#include "ar/commlink.h"
-#include "ar/usbdev.h"
-#include "cd/cd.h"
-#include "cd/cdfs.h"
-#include "cd/mpeg.h"
-#include "cd/cdsect.h"
-#include "debug/debug.h"
-#include "file/image.h"
-#include "file/pcx.h"
-#include "modem/netlink.h"
-#include "peripherals/smpc.h"
-#include "scu/dsp.h"
-#include "scu/scudma.h"
-#include "scu/scuregs.h"
-#include "scu/extram.h"
-#include "sh2/sh2dma.h"
-#include "sh2/sh2int.h"
-#include "sh2/sh2regs.h"
-#include "sh2/sci.h"
-#include "sh2/timer.h"
-#include "sound/sound.h"
-#include "ui/font.h"
-#include "ui/gui.h"
-#include "ui/text.h"
-#include "video/vdp.h"
-
-void init_iapetus(int res);
+#ifdef __cplusplus
+extern "C"{
+#endif
 
 enum IAPETUS_ERR
 {
@@ -74,5 +47,40 @@ enum IAPETUS_ERR
    IAPETUS_ERR_CDNOTFOUND=-102,      // CD not found
    IAPETUS_ERR_MPEGCMD=-103,         // MPEG command hirq bit not set
 };
+
+#include "types.h"
+#include "bios.h"
+#include "ar/arcomm.h"
+#include "ar/commlink.h"
+#include "ar/usbdev.h"
+#include "cd/cd.h"
+#include "cd/cdfs.h"
+#include "cd/mpeg.h"
+#include "cd/cdsect.h"
+#include "debug/debug_iapetus.h"
+#include "file/image.h"
+#include "file/pcx.h"
+#include "modem/netlink.h"
+#include "peripherals/smpc.h"
+#include "scu/dsp.h"
+#include "scu/scudma.h"
+#include "scu/scuregs.h"
+#include "scu/extram.h"
+#include "sh2/sh2dma.h"
+#include "sh2/sh2int.h"
+#include "sh2/sh2regs.h"
+#include "sh2/sci.h"
+#include "sh2/timer.h"
+#include "sound/sound.h"
+#include "ui/font.h"
+#include "ui/gui.h"
+#include "ui/text.h"
+#include "video/vdp.h"
+
+void init_iapetus(int res);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
